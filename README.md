@@ -33,3 +33,25 @@ The following URLs are exposed through the web-service:
     - An HTTP 200 (Ok) response code with the Diffie-Hellman parameters in the response body if there is a parameter of the requested size available.
     - An HTTP 503 (Service Unavailable) response code with a JSON encoded response if the cache for that configured Diffie-Hellman parameter size is currently unavailable.
     - An HTTP 404 (Not Found) response code with a JSON encoded response if dhcache isn't configured to provide the requested Diffie-Hellman parameter size.
+
+## Examples
+
+The following command will start `dhcache` listening on all IPv4 addresses, port 80, using 4 workers to maintain a cache of 8 1024-bit, 4 2048-bit and 2 4096-bit Diffie-Hellman parameters:
+```
+$ dhcache -l 0 -p 80 -w 4 1024:8 2048:4 4096:2
+```
+
+The following command will start `dhcache` listening on the IPv6 loopback address, port 8080, using 2 workers to maintain a cache of 8 1024-bit Diffie-Hellman parameters:
+```
+$ dhcache -l ::1 -p 8080 -w 2 1024:8
+```
+
+The following command will start `dhcache` and pull all configuration information from it's default configuration file:
+```
+$ dhcache
+```
+
+The following command will start `dhcache` and pull all configuration information from the file located at `/path/to/configuration`:
+```
+$ dhcache -c /path/to/configuration
+```
