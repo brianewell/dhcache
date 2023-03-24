@@ -1,0 +1,13 @@
+[package]
+name = "dhcache"
+version = "0.0.1"
+edition = "2021"
+license = "MPL-2.0"
+description = "A micro Diffie-Hellman parameter generation web-service"
+homepage = "https://github.com/brianewell/dhcache"
+repository = "https://github.com/brianewell/dhcache"
+readme = "README.md"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
