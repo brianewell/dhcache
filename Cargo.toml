@@ -11,3 +11,4 @@ license = "MIT"
 
 [dependencies]
 clap = { version = "4.5.32", features = ["derive"] }
+warp = { version = "0.3.7", default-features = false }
