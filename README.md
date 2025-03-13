@@ -8,7 +8,7 @@
 
 - **Concurrent Pre-Generation** of Diffie-Hellman parameters
 - **Ephemeral Caching** to securely minimize delays
-- **RESTful API** to retrieve and/or evict cached parameters
+- **RESTful API** to retrieve and evict cached parameters
 - **Configurable Key Sizes and Parameter Counts** at runtime
 - **Lightweight and Fast** implementation in Rust
 
@@ -38,11 +38,11 @@ cargo build --release
 
 ## Configuration
 
-All configuration is performed through command-line parameters, available by calling the program with the `--help` parameter:
+All configuration is performed through command-line parameters, available by calling the program with the `--help` flag:
 
 ```sh
 dhcache --help
-A micro Diffie-Hellman parameter generation web-service
+A micro Diffie-Hellman parameter generation web service
 
 Usage: dhcache [OPTIONS] <count>:<bits>...
 
@@ -57,9 +57,9 @@ Options:
   -V, --version            Print version
 ```
 
-Listening address, port and worker numbers have overridable defaults, the cache behavior is defined by a collection of `count` and `bit` pairs, with `count` representing the number of DH parameters of size `size` to cache.
+The listening address, port, and worker count have configurable defaults. The cache behavior is defined by a collection of `<count>:<bits>` pairs, where `<count>` represents the number of DH parameters of size `<bits>` to cache.
 
-The following command-line parameters would start DHCache on its default listening address and port 80, and use two worker threads to maintain a cache of eight 1024-bit DH parameters, four 2048-bit DH parameters, and two 4096-bit DH parameters:
+The following command starts DHCache on its default listening address, port 80, and uses two worker threads to maintain a cache of eight 1024-bit DH parameters, four 2048-bit DH parameters, and two 4096-bit DH parameters:
 
 ```sh
 dhcache -w 2 8:1024 4:2048 2:4096
@@ -67,20 +67,20 @@ dhcache -w 2 8:1024 4:2048 2:4096
 
 ## Usage
 
-All normal interactions occurs via the configured web service.
+All interactions with DHCache occur via the configured web service.
 
-#### List Available DH Parameters
+### List Available DH Parameters
 
 ```
 GET /
 GET /status
 ```
 
-The service can be queried to determine the overall status of the cache.
+Returns the overall status of the cache.
 
-- **Parameters:** __none__
+- **Parameters:** _None_
 - **Response:**
-  - **HTTP 200**: Returns a JSON-encoded response listing DH parameters, including their bit sizes, relative paths, available parameters and maximum numbers of parameters that will be cached.
+  - **HTTP 200**: Returns a JSON-encoded response listing DH parameters, including their bit sizes, relative paths, available parameters, and the maximum number of parameters cached.
 
 **Example Response:**
 
@@ -104,34 +104,34 @@ The service can be queried to determine the overall status of the cache.
 }
 ```
 
-#### Retrieve DH Parameters
+### Retrieve DH Parameters
 
 ```
-GET /:bits
+GET /<bits>
 ```
 
-The service can be queried to return a set of DH parameters.
+Returns a set of DH parameters.
 
 - **Parameters:**
-  - `:bits` (integer): Specifies the key size of DH parameters to return from the cache
+  - `<bits>` (integer): Specifies the key size of DH parameters to retrieve from the cache.
 - **Response:**
-  - `HTTP 200` (OK): Returns a _ encoded response containing the requested DH parameters.
-  - `HTTP 404` (Not Found): Returns an HTTP Not Found error if the cache isn't configured to serve the requested bit size.
-  - `HTTP 503` (Service Unavailable): Returns an HTTP Service Unavailable error if the service is configured to serve this DH parameter size, but the cache has no parameters available for that size.
+  - **HTTP 200** (OK): Returns a JSON-encoded response containing the requested DH parameters.
+  - **HTTP 404** (Not Found): The requested bit size is not configured in the cache.
+  - **HTTP 503** (Service Unavailable): The requested bit size is supported, but no parameters are currently available.
 
-#### Evict Cached Parameters
+### Evict Cached Parameters
 
 ```
-DELETE /:bits
+DELETE /<bits>
 ```
 
-The service can be queried to completely clear and regenerate all DH parameters for a given parameter size.
+Clears and regenerates all DH parameters for a given size.
 
 - **Parameters:**
-  - `:bits` (integer): Specifies the key size of DH parameters to clear from the cache.
+  - `<bits>` (integer): Specifies the key size of DH parameters to clear from the cache.
 - **Response:**
-  - `HTTP 204`: The service sucessfully processed the request.
-  - `HTTP 404`: The service could not clear the cache since its not configured to cache that size of DH parameters.
+  - **HTTP 204**: The request was successfully processed.
+  - **HTTP 404**: The specified bit size is not configured for caching.
 
 ## Contributing
 
