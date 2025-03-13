@@ -1,9 +1,7 @@
 # DHCache
 
-![Crates.io Version](https://img.shields.io/crates/v/dhcache)
-![docs.rs](https://img.shields.io/docsrs/dhparam)
-![Crates.io License](https://img.shields.io/crates/l/dhparam)
-
+[![Crates.io Version](https://img.shields.io/crates/v/dhcache)](https://crates.io/crates/dhcache)
+[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 
 ## Overview
 
@@ -154,7 +152,7 @@ Contributions are welcome! Please open an issue or submit a pull request to impr
 
 ## License
 
-This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
+This project is licensed under the MIT License. See [LICENSE](./LICENSE) for details.
 
 ## Contact
 
