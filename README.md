@@ -71,7 +71,7 @@ All interactions with DHCache occur via the configured web service.
 
 ### List Available DH Parameters
 
-```
+```http
 GET /
 GET /status
 ```
@@ -106,7 +106,7 @@ Returns the overall status of the cache.
 
 ### Retrieve DH Parameters
 
-```
+```http
 GET /<bits>
 ```
 
@@ -121,7 +121,7 @@ Returns a set of DH parameters.
 
 ### Evict Cached Parameters
 
-```
+```http
 DELETE /<bits>
 ```
 
