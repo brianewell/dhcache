@@ -1,6 +1,9 @@
 # DHCache
 
-![Crates.io Version](https://img.shields.io/crates/v/dhparam)
+![Crates.io Version](https://img.shields.io/crates/v/dhcache)
+![docs.rs](https://img.shields.io/docsrs/dhparam)
+![Crates.io License](https://img.shields.io/crates/l/dhparam)
+
 
 ## Overview
 
