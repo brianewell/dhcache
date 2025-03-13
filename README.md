@@ -1,5 +1,7 @@
 # DHCache
 
+![Crates.io Version](https://img.shields.io/crates/v/dhparam)
+
 ## Overview
 
 **DHCache** is a micro Diffie-Hellman parameter generation web service. It provides a lightweight and efficient way to concurrently pre-generate and maintain an ephemeral cache of unique DH parameters in various sizes for secure key exchange operations.
@@ -19,7 +21,17 @@
 - [Rust](https://www.rust-lang.org/tools/install) (latest stable version recommended)
 - [Cargo](https://doc.rust-lang.org/cargo/) (Rust package manager)
 
-### Build and Run
+### Install Using Cargo
+
+DHCache is available on crates.io, and can be installed using cargo:
+
+```sh
+cargo install dhcache
+```
+
+### Install Using Git
+
+If you prefer to experiment with the latest version from the source repository, you can directly clone and build it manually.
 
 ```sh
 # Clone the repository
