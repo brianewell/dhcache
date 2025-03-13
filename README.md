@@ -2,6 +2,7 @@
 
 [![Crates.io Version](https://img.shields.io/crates/v/dhcache)](https://crates.io/crates/dhcache)
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
+[![Rust](https://github.com/brianewell/dhcache/actions/workflows/rust.yml/badge.svg)](https://github.com/brianewell/dhcache/actions/workflows/rust.yml)
 
 ## Overview
 
