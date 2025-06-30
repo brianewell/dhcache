@@ -136,10 +136,19 @@ Returns a set of DH parameters.
 ### Evict Cached Parameters
 
 ```http
+DELETE /
+```
+
+Purges and regenerates all DH parameters.
+
+- **Response:**
+  - **HTTP 204**: The request was successfully processed.
+
+```http
 DELETE /<bits>
 ```
 
-Clears and regenerates all DH parameters for a given size.
+Purges and regenerates all DH parameters for a given size.
 
 - **Parameters:**
   - `<bits>` (integer): Specifies the key size of DH parameters to clear from the cache.
