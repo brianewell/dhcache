@@ -21,7 +21,7 @@
 ### Prerequisites
 
 - [Rust](https://www.rust-lang.org/tools/install) (latest stable version recommended)
-- [Cargo](https://doc.rust-lang.org/cargo/) (Rust package manager)
+- [Cargo](https://doc.rust-lang.org/cargo/) (Optionally install via Rust package manager)
 
 ### Install Using Cargo
 
@@ -129,7 +129,7 @@ Returns a set of DH parameters.
 - **Parameters:**
   - `<bits>` (integer): Specifies the key size of DH parameters to retrieve from the cache.
 - **Response:**
-  - **HTTP 200** (OK): Returns a JSON-encoded response containing the requested DH parameters.
+  - **HTTP 200** (OK): Returns a PEM-encoded response containing the requested DH parameters.
   - **HTTP 404** (Not Found): The requested bit size is not configured in the cache.
   - **HTTP 503** (Service Unavailable): The requested bit size is supported, but no parameters are currently available.
 
