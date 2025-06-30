@@ -58,25 +58,25 @@ All configuration is performed through command-line parameters, available by cal
 dhcache --help
 A micro Diffie-Hellman parameter generation web service
 
-Usage: dhcache [OPTIONS] <count>:<bits>...
+Usage: dhcache [OPTIONS] <bits>:<count>...
 
 Arguments:
-  <count>:<bits>...
+  <bits>:<count>...
 
 Options:
   -b, --bind <address>     [default: 0.0.0.0]
   -p, --port <port>        [default: 4000]
-  -w, --workers <workers>  [default: 1]
+  -w, --workers <workers>  [default: 0]
   -h, --help               Print help
   -V, --version            Print version
 ```
 
-The listening address, port, and worker count have configurable defaults. The cache behavior is defined by a collection of `<count>:<bits>` pairs, where `<count>` represents the number of DH parameters of size `<bits>` to cache.
+The listening address, port, and worker counts can be configured on the command-line. The default number of 0 workers will automatically set the number of workers to equal the number of auto-detected system threads. The cache behavior is defined by a collection of `<bits>:<count>` pairs, where `<count>` represents the number of DH parameters of size `<bits>` to cache.
 
 The following command starts DHCache on its default listening address, port 80, and uses two worker threads to maintain a cache of eight 1024-bit DH parameters, four 2048-bit DH parameters, and two 4096-bit DH parameters:
 
 ```sh
-dhcache -w 2 8:1024 4:2048 2:4096
+dhcache -w 2 1024:8 2048:4 4096:2
 ```
 
 ## Usage

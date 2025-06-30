@@ -12,7 +12,7 @@ pub struct Cli {
     pub port: u16,
 
     // Number of worker threads to use for concurrent parameter generation
-    #[arg(short, long, default_value_t=1, value_name="workers")]
+    #[arg(short, long, default_value_t=0, value_name="workers")]
     pub workers: u8,
 
     // Follow-on arguments in the form of "<bits>:<count>"
