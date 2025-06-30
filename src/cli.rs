@@ -4,7 +4,7 @@ pub use clap::Parser;
 #[command(version, about, long_about=None)]
 pub struct Cli {
     // Bind address
-    #[arg(short, long, default_value="::1", value_name="address")]
+    #[arg(short, long, default_value="::", value_name="address")]
     pub bind: String,
 
     // Bind port
@@ -16,7 +16,7 @@ pub struct Cli {
     pub workers: u8,
 
     // Follow-on arguments in the form of "<bits>:<count>"
-    #[arg(value_name="count>:<bits", required=true, value_parser=parse_count_bits)]
+    #[arg(value_name="bits>:<count", required=true, value_parser=parse_count_bits)]
     pub cache_parameters: Vec<(u8,u16)>
 }
 

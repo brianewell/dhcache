@@ -64,7 +64,7 @@ Arguments:
   <bits>:<count>...
 
 Options:
-  -b, --bind <address>     [default: 0.0.0.0]
+  -b, --bind <address>     [default: ::]
   -p, --port <port>        [default: 4000]
   -w, --workers <workers>  [default: 0]
   -h, --help               Print help
