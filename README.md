@@ -99,23 +99,26 @@ Returns the overall status of the cache.
 **Example Response:**
 
 ```json
-{
-  "1024": {
+[
+  {
+    "bits": 1024,
     "path": "/1024",
     "available": 6,
-    "max": 8
+    "maximum": 8
   },
-  "2048": {
+  {
+    "bits": 2048,
     "path": "/2048",
     "available": 4,
-    "max": 4
+    "maximum": 4
   },
-  "4096": {
+  {
+    "bits": 4096,
     "path": "/4096",
     "available": 2,
     "max": 2
   }
-}
+]
 ```
 
 ### Retrieve DH Parameters
